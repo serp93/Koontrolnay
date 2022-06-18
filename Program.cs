@@ -2,7 +2,6 @@
 
 {
     string[] array = new string[size];
-
     for (int i = 0; i < size; i++)
     {
         Console.Write("Enter an array: ");
@@ -13,25 +12,27 @@
 
 string[] SortArray(string[] words)
 {
+    int count = 0;
+    int k = 1;
+    string[] newArray = new string[words.Length];
     string temp = string.Empty;
-
+    
     for (int i = 0; i < words.Length - 1; i++)
-
     {
-        for (int j = 0; j < words.Length - 1 - i; j++)
-        {
+        temp = words[i];
 
-            if (words[j].Length >= 3)
-            {
-                temp = words[j];
-                words[j] = words[j + 1];
-                words[j + 1] = temp;
-            }
+        for (int j = 0; j < temp.Length; j++)
+        {
+            count = j + 1;
+        }
+        if (count <= 3)
+        {
+            k++;
+            newArray[k] = words[i];
         }
     }
-    return words;
+    return newArray;
 }
-
 
 void PrintArray(string[] array)
 {
@@ -41,7 +42,6 @@ void PrintArray(string[] array)
     }
     Console.WriteLine();
 }
-
 Console.Write("Input array size: ");
 int arraySize = Convert.ToInt32(Console.ReadLine());
 string[] myArray = CreateArray(arraySize);
